@@ -8,15 +8,22 @@
   <link rel="stylesheet" type="text/css" href="multi-steps.css">
 </head>
 <body>
- 
-<div class="indicator" id="start">1</div>
-<div class="indicator">2</div>
-<div class="indicator">3</div>
-<div class="indicator">4</div>
-<div class="indicator">5</div>
-<div class="indicator">6</div>
-<div class="indicator">7</div>
-<div class="indicator" id="finish">8</div>
+  <div class="container">
+    <div class="row">
+      <div class="offset-lg-3 col-lg-6 col-sm-12">
+        <div class="indicator" id="start">1</div>
+        <div class="indicator">2</div>
+        <div class="indicator">3</div>
+        <div class="indicator">4</div>
+        <div class="indicator">5</div>
+        <div class="indicator">6</div>
+        <div class="indicator">7</div>
+        <div class="indicator" id="finish">8</div>
+      </div>
+      
+    </div>
+  </div>
+
 
 <div id="step-content">
 	<div class="steps "  id="start-step">1</div>
@@ -29,64 +36,20 @@
 	<div class="steps"  id="finish-step">8</div>
 </div>
 
-<p><button id="prev">Go to prev</button></p>
-<p><button id="next">Go to next</button></p>
+<p><button id="prev" class="btn">Go to prev</button></p>
+<p><button id="next" class="btn">Go to next</button></p>
  
 
 
 </body>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 <!-- Popper JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
-<script>
-var $current = $('#start');
-$current.addClass('active');
-
-var $current_step = $('#start-step');
-$current_step.addClass('active-step-content');
-
-$( "button#next" ).click(function() {
-  if( $('#finish').hasClass('active') ){
-    return false;
-  }
-  if( $('#finish-step').hasClass('active-step-content') ){
-    return false;
-  }
-  // indicator
-  $current = $current.next();
-  $( "div.indicator" ).removeClass("active");
-  $current.addClass("active");
-
-  // content
-  $current_step = $current_step.next();
-  $('div.steps').removeClass('active-step-content');
-  $current_step.addClass('active-step-content');
-});
-$( "button#prev" ).click(function() {
-  if( $('#start').hasClass('active') ){
-    return false;
-  }
-  if( $('#start-step').hasClass('active-step-content') ){
-    return false;
-  }
-
-  // indicator
-  $current = $current.prev();
-  $( "div.indicator" ).removeClass("active");
-  $current.addClass("active");
-
-  // content
-  $current_step = $current_step.prev();
-  $('div.steps').removeClass('active-step-content');
-  $current_step.addClass('active-step-content');
-});
-</script>
+<!-- multi steps js -->
+<script src="multi-steps.js"></script>
 </html>
 
 
