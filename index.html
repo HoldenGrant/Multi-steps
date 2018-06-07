@@ -3,42 +3,9 @@
 <head>
   <meta charset="utf-8">
   <title>prev demo</title>
-  <style>
-  div.indicator {
-    width: 40px;
-    height: 40px;
-    margin: 10px;
-    float: left;
-    border: 2px blue solid;
-    padding: 2px;
-  }
-  div.steps {
-    width: 40px;
-    height: 40px;
-    margin: 10px;
-    float: left;
-    border: 2px red solid;
-    padding: 2px;
-  }
-  span {
-    font-size: 14px;
-  }
-  p {
-    clear: left;
-    margin: 10px;
-  }
-  .active{
-  	background: #f99;
-  }
-  .steps{
-    display: none;
-  }
-  .active-step-content{
-    background: #f99;
-    display: block;
-  }
-  </style>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="multi-steps.css">
 </head>
 <body>
  
@@ -65,6 +32,18 @@
 <p><button id="prev">Go to prev</button></p>
 <p><button id="next">Go to next</button></p>
  
+
+
+</body>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
 <script>
 var $current = $('#start');
 $current.addClass('active');
@@ -73,16 +52,16 @@ var $current_step = $('#start-step');
 $current_step.addClass('active-step-content');
 
 $( "button#next" ).click(function() {
-	if( $('#finish').hasClass('active') ){
-		return false;
-	}
+  if( $('#finish').hasClass('active') ){
+    return false;
+  }
   if( $('#finish-step').hasClass('active-step-content') ){
     return false;
   }
   // indicator
-	$current = $current.next();
-	$( "div.indicator" ).removeClass("active");
-	$current.addClass("active");
+  $current = $current.next();
+  $( "div.indicator" ).removeClass("active");
+  $current.addClass("active");
 
   // content
   $current_step = $current_step.next();
@@ -90,17 +69,17 @@ $( "button#next" ).click(function() {
   $current_step.addClass('active-step-content');
 });
 $( "button#prev" ).click(function() {
-	if( $('#start').hasClass('active') ){
-		return false;
-	}
+  if( $('#start').hasClass('active') ){
+    return false;
+  }
   if( $('#start-step').hasClass('active-step-content') ){
     return false;
   }
 
   // indicator
-	$current = $current.prev();
-	$( "div.indicator" ).removeClass("active");
-	$current.addClass("active");
+  $current = $current.prev();
+  $( "div.indicator" ).removeClass("active");
+  $current.addClass("active");
 
   // content
   $current_step = $current_step.prev();
@@ -108,8 +87,6 @@ $( "button#prev" ).click(function() {
   $current_step.addClass('active-step-content');
 });
 </script>
- 
-</body>
 </html>
 
 
