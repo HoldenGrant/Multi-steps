@@ -4,12 +4,20 @@
   <meta charset="utf-8">
   <title>prev demo</title>
   <style>
-  div {
+  div.indicator {
     width: 40px;
     height: 40px;
     margin: 10px;
     float: left;
     border: 2px blue solid;
+    padding: 2px;
+  }
+  div.steps {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    float: left;
+    border: 2px red solid;
     padding: 2px;
   }
   span {
@@ -19,28 +27,56 @@
     clear: left;
     margin: 10px;
   }
+  .active{
+  	background: #f99;
+  }
   </style>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
  
-<div></div>
-<div></div>
-<div><span>has child</span></div>
-<div></div>
-<div></div>
-<div></div>
-<div id="start"></div>
-<div></div>
-<p><button>Go to Prev</button></p>
+<div class="indicator" id="start"></div>
+<div class="indicator"></div>
+<div class="indicator"><span>has child</span></div>
+<div class="indicator"></div>
+<div class="indicator"></div>
+<div class="indicator"></div>
+<div class="indicator"></div>
+<div class="indicator" id="finish"></div>
+
+<div id="step-content">
+	<div class="steps "  id="start-step">1</div>
+	<div class="steps" >2</div>
+	<div class="steps" >3</div>
+	<div class="steps" >4</div>
+	<div class="steps" >5</div>
+	<div class="steps" >6</div>
+	<div class="steps" >7</div>
+	<div class="steps"  id="finish-step">8</div>
+</div>
+
+<p><button id="prev">Go to prev</button></p>
+<p><button id="next">Go to next</button></p>
  
 <script>
-var $curr = $( "#start" );
-$curr.css( "background", "#f99" );
-$( "button" ).click(function() {
-  $curr = $curr.prev();
-  $( "div" ).css( "background", "" );
-  $curr.css( "background", "#f99" );
+var $current = $( "#start" );
+$current.addClass("active");
+
+$( "button#next" ).click(function() {
+	if( $('#finish').hasClass('active') ){
+		return false;
+	}
+	$current = $current.next();
+	$( "div.indicator" ).removeClass("active");
+	$current.addClass("active");
+});
+$( "button#prev" ).click(function() {
+	if( $('#start').hasClass('active') ){
+		return false;
+	}
+	$current = $current.prev();
+	$( "div.indicator" ).removeClass("active");
+	$current.addClass("active");
 });
 </script>
  
