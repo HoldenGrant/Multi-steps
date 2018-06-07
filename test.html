@@ -1,0 +1,92 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Multi Steps</title>
+	<style>
+		.hide-content{
+			display: none;
+		}
+		.show-content{
+			display: block;
+		}
+		.active-step, .step-active{
+			background: red;
+		}
+	</style>
+</head>
+<body>
+<div id="steps-indicator">
+	<ul>
+		<li class="active-step"><div>Step 1</div></li>
+		<li class=""><div>Step 2</div></li>
+		<li class=""><div>Step 3</div></li>
+		<li class=""><div>Final</div></li>
+	</ul>
+</div>
+<div id="step-content">
+	<div class="step-container">
+		<button data-start="start">start</button>
+	</div>
+	<div class="step-container hide-content">
+		<button data-next="next">next</button>
+		<button data-prev="prev">prev</button>
+	</div>
+	<div class="step-container hide-content">
+		<button data-next="next">yes</button>
+		<button data-prev="prev">no</button></div>
+	<div class="step-container hide-content">
+		<button data-finish="finish">finish</button>
+		<button data-prev="prev">prev</button>
+	</div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+<script>
+	$(function(){
+		$("button").data("next", "next").on('click', function(){
+			
+			$('#steps-indicator ul li').each(function(){
+
+				var active_indicator1 = $(this).hasClass('active-step');
+				var active_indicator1 = $(this).hasClass('step-active');
+
+				if ( active_indicator1 ) {
+					$(this).next().addClass("step-active");
+					//$(this).prev().addClass("step23-active");
+					//$(this).removeClass('active-step');
+					//$(this).next().addClass("step-active");
+					//console.log($(this).next().addClass("step-active"));
+					//console.log($(this).prev().removeClass("step-active"));
+				} else if( $(this).prev().hasClass('active-step') ) {
+					$(this).prev().removeClass("active-step");
+					//console.log($(this).prev().removeClass("active-step"));
+					//var next_indicator = 
+					//$(this+'.active-step').removeClass("active-step");
+					//$(this).next().addClass("removeClass");
+					//console.log(next_indicator);
+				}
+
+				if ( active_indicator2 ) {
+					$(this).next().addClass("active-step");
+				} else if( $(this).prev().hasClass('step-active') ) {
+					$(this).prev().removeClass("step-active");
+				}
+				//('ul li div').parent().addClass('active-step').siblings().removeClass('active-step');
+				//$('ul li.active-step').removeClass('active-step');
+    			//$(this).closest('li').addClass('active-step');
+    			//console.log(this);
+    			//console.log(active_indicator);
+			});
+			
+		});
+		//$("")
+		//$(data-"id"
+		
+	});
+</script>
+</html>
