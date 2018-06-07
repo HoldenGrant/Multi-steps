@@ -9,13 +9,20 @@ $(function(){
 
 	// button next
 	$('button#next').click(function() {
-		if( $('#finish').hasClass('active') ){
+		if( $('#finish').hasClass('active') ){ return false; }
+		if( $('#finish-step').hasClass('active-step-content') ){ return false; }
+
+		// check input if has value
+		if( !$('#form-1 input').val() ) {
+			$('#form-1 input').addClass('btn-danger');
 			return false;
+		} else {
+			$('#form-1 input').removeClass('btn-danger');
 		}
 
-		if( $('#finish-step').hasClass('active-step-content') ){
-			return false;
-		}
+		var user_name = $('#form-1 input').val();
+		console.log(user_name);
+		$('#username-display').text(user_name);
 
 		// indicator
 		$current = $current.next();
@@ -30,12 +37,8 @@ $(function(){
 
 	// button prev
 	$('button#prev').click(function() {
-		if( $('#start').hasClass('active') ){
-			return false;
-		}
-		if( $('#start-step').hasClass('active-step-content') ){
-			return false;
-		}
+		if( $('#start').hasClass('active') ){ return false; }
+		if( $('#start-step').hasClass('active-step-content') ){ return false; }
 
 		// indicator
 		$current = $current.prev();
