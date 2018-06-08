@@ -19,6 +19,9 @@ $(function(){
 		} else {
 			$('#form-1 input').removeClass('btn-danger');
 		}
+		if ( $('#form-1 input').hasClass('btn-danger') ) {
+
+		}
 
 		var user_name = $('#form-1 input').val();
 		console.log(user_name);
@@ -50,4 +53,12 @@ $(function(){
 		$('div.steps').removeClass('active-step-content');
 		$current_step.addClass('active-step-content');
 	});
+
+	// if form 1 has red background remove it on click
+	$('#form-1 input').on('click', function(){
+		if ( $(this).hasClass('btn-danger') ) {
+			$(this).removeClass('btn-danger');
+			//alert('test');
+		}
+	})
 });

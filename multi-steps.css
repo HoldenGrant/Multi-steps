@@ -33,3 +33,6 @@ p {clear: left;margin: 10px;}
 .input-error{
   background-color: red;
 }
+.form-control{
+  transition: .5s;
+}
