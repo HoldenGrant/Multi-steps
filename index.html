@@ -12,13 +12,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="multi-steps.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,700,800,900" rel="stylesheet"> 
 </head>
 <body>
   <div class="container" style="height: 100%;">
     <div class="row" style="height: 100%;">
-      <div class="offset-lg-3 col-lg-6 offset-md-3 col-md-6 col-sm-12 offset-sm-1 col-sm-10 col-xs-12 text-center mb-3 pt-3 pb-3" style="height: 100%;">
+      <div class="offset-lg-3 col-lg-6 offset-md-3 col-md-6 col-sm-12 col-sm-10 col-xs-12 text-center mb-3 pt-3 pb-3" style="height: 100%;">
         <div id="multi-step-container">
-          <h1>Multi Steps</h1>
+          <h1 class="mb-3">Thanos???</h1>
           <div id="steps-indicator-container">
             <div class="indicator" id="start">1</div>
             <div class="indicator">2</div>
@@ -32,8 +33,9 @@
 
           <div id="step-content">
             <div class="steps "  id="start-step">
-              <form role="form" id="form-1">
-                <div class="form-group text-left">
+              <form role="form" id="form-1" class="mt-3">
+                <h2>Hello! user</h2>
+                <div class="form-group text-left mt-3">
                   <label>What's your name?</label>
                   <input class="form-control">
                 </div>
@@ -46,13 +48,19 @@
             </div>
 
             <div class="steps" >
-              <span class="big-text">Hello!. <span id="username-display"></span></span>
-              <p><button id="prev" class="btn">Go to prev</button></p>
-              <p><button id="next" class="btn">Go to next</button></p>
+              <span class="big-text">Hello!. <span id="username-display"></span></span><br>
+              Are you looking for a
+              <p><button class="btn">Web Developer</button></p>
+              or a
+              <p><button class="btn" data-dev="Front-End Developer">Front-End Developer</button></p>
+              <p><button id="prev" class="btn" data-dev="Front-End Developer">Go to prev</button></p>
+              <!-- <p><button id="prev" class="btn">Go to prev</button></p> -->
+              <p><button id="next" class="btn btn-success">Go to next</button></p>
             </div>
-            <div class="steps" >3
+            <div class="steps" >
+              
               <p><button id="prev" class="btn">Go to prev</button></p>
-              <p><button id="next" class="btn">Go to next</button></p>
+              <p><button id="next" class="btn btn-success">Go to next</button></p>
             </div>
             <!-- <div class="steps" >4</div>
             <div class="steps" >5</div>
@@ -60,7 +68,7 @@
             <div class="steps" >7</div> -->
             <div class="steps"  id="finish-step">4
               <p><button id="prev" class="btn">Go to prev</button></p>
-              <p><button id="next" class="btn">Go to next</button></p>
+              <p><button id="next" class="btn btn-success">Done</button></p>
             </div>
             <!-- <p><button id="prev" class="btn">Go to prev</button></p>
             <p><button id="next" class="btn">Go to next</button></p> -->
